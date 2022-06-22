@@ -31,6 +31,17 @@ claim dialect (i.e., a claim dialect local to the Identity Server) or
 define your own custom claim dialect (i.e., a claim dialect which exists
 in the identity provider that must be mapped to the Identity Server).
 
+!!! note "Do this only if you decide to define a custom claim dialect"
+
+    If your considering to define a custom claim dialect, the following configuration should be added to the 
+    `<IS_HOME>/repository/conf/deployment.toml` file for that to take effect, otherwise the protocol specific claim 
+    dialect such as the OIDC dialect is always picked.
+
+    ```toml
+    [authentication.endpoint]
+    enable_custom_claim_mappings = true
+    ```
+
 - If you choose to **Use Local Claim Dialect**, select the claim you require from the **User ID Claim URI** dropdown that includes a list of all the claims defined in the Identity Server.  
     ![user-id-claim-uri](../assets/img/using-wso2-identity-server/user-id-claim-uri.png)
 - You can alternatively choose the **Define Custom Claim Dialect** option.  
